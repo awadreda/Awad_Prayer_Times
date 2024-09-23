@@ -177,9 +177,10 @@
     #ctiy-date
   {
 
-    flex: 1;
+    /* flex: 1; */
+    margin: 0 auto;
     margin-top: 80px;
-    
+      
   }
   
   #results {
@@ -191,6 +192,12 @@
     
     margin-bottom: 80px;
   
+  }
+
+  #city {
+
+
+
   }
 
 
