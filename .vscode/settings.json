@@ -1,6 +1,5 @@
 {
   "files.exclude": {
-    "node_modules": "explorerExcludedFiles",
-    "Upload": "explorerExcludedFiles"
+    "node_modules": "explorerExcludedFiles"
   }
 }

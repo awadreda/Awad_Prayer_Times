@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/dist/outPut.css">
+<style>
+
+
+/* select Design */
+
+/* Container for custom select styling */
+.custom-select-container {
+    position: relative;
+    width: 250px;
+    margin: 10px auto;
+    
+}
+
+/* Base styling for select box */
+.custom-select-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    appearance: none; /* Removes default arrow */
+    background-color: white;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect */
+.custom-select-container select:hover {
+    border-color: #66afe9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Add focus state */
+.custom-select-container select:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* Custom arrow for select box */
+.custom-select-container::after {
+    content: '▼';
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allows click-through */
+}
+
+/* Optional: Style the options when open */
+.custom-select-container select option {
+    padding: 10px;
+}
+
+
+/* select Design */
+
+
+  body{
+
+      font-family: "Cairo", sans-serif;
+
+
+
+  }
+
+
+  #background2 {
+
+    background-image: url("/dist/images/BeautifulMosque.jpeg");
+  
+    background-size: contain;
+
+    width: 100%;
+    /* height: 100vh; */
+    position: absolute;
+
+    z-index: -1;
+    top: 100vh;
+    left: 0;
+
+
+    }
+
+  
+  #background {
+
+    background-image: url("/dist/images/BeautifulMosque.jpeg");
+  
+    background-size: contain;
+
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+  }
+
+  #background::after {
+
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.654);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    
+  }
+
+  #background2::after {
+
+    content: "";
+    position: absolute;
+    background-color:  rgba(0, 0, 0, 0.625);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    
+  }
+
+  .back2{
+
+    height: 50vh;
+  }
+
+  /* #prayer_time  div:nth-child(2){
+  
+  
+  } */
+
+  #prayer_time > div{
+   transition: .3s;
+    &:hover{
+      background-color: rgba(35, 35, 102, 0.461);
+
+    
+
+    }
+
+    
+
+  }
+
+
+
+  /* media queries */
+  
+  /* Styles for devices with a screen width of 600px or less (mobile devices) */
+@media (max-width: 600px) {
+ 
+  h1 {
+
+
+    text-align: center;
+    font-size: 18px;
+  }
+
+
+  #content{
+
+    flex-direction: column-reverse;
+
+    
+    
+  }
+
+    #ctiy-date
+  {
+
+    flex: 1;
+    margin-top: 80px;
+    
+  }
+  
+  #results {
+    
+    flex: 1;
+    width: 100%;
+    
+    margin-top: 40px;
+    
+    margin-bottom: 80px;
+  
+  }
+
+
+
+}
+
+/* Styles for devices with a screen width of 600px to 1024px (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  
+
+  #ctiy-date
+  {
+
+    flex-basis: 45%;;
+    
+  }
+  
+  #results {
+    
+    flex-basis: 45%;;
+
+  }
+
+}
+
+/* Styles for devices with a screen width of more than 1024px (desktops) */
+@media (min-width: 1025px) {
+  body {
+    background-color: lightcoral;
+  }
+
+  .container {
+    flex-direction: row;
+  }
+}
+
+  
+  /* media queries */
+  
+
+</style>
+
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="background"  class=" " ></div>
+
+<h1 class="lg:text-4xl font-bold mx-auto block w-fit my-10 mb-14 justify-between   text-white p-3 ">"إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا"</h1>
+
+<div id="content" class=" lg:container mx-auto flex     flex-nowrap">
+
+
+  <div id="city-date" class=" flex justify-center items-center mx-auto" style="">
+
+   
+  
+  
+  <div id="city" class="text-white pr-5 text-right font-bold">
+
+    
+    <div id="countriesdiv" class="custom-select-container">
+
+      <label for="countries">اختر دولة:</label>
+      <select class="text-black" id="countries" name="arabic-countries">
+    <!-- <option value="saudi-arabia">المملكة العربية السعودية</option>
+    <option value="uae">الإمارات العربية المتحدة</option>
+    <option value="egypt">مصر</option>
+    <option value="morocco">المغرب</option>
+    <option value="iraq">العراق</option>
+    <option value="jordan">الأردن</option>
+    <option value="syria">سوريا</option>
+    <option value="tunisia">تونس</option>
+    <option value="algeria">الجزائر</option>
+    <option value="kuwait">الكويت</option>
+    <option value="qatar">قطر</option>
+    <option value="bahrain">البحرين</option>
+    <option value="oman">عُمان</option>
+    <option value="lebanon">لبنان</option>
+    <option value="libya">ليبيا</option>
+    <option value="sudan">السودان</option>
+    <option value="yemen">اليمن</option>
+    <option value="palestine">فلسطين</option> -->
+  </select>
+</div>
+  
+<div id="cities-div" class="custom-select-container  my-5 w-fit  border-5 ">
+  
+  <label for="cities">اختر مدينة:</label>
+    <select name="" id="cities" class="text-black">
+      <option value="Cario">
+        Cario
+      </option>
+      
+    </select>
+  </div>
+    
+  <div id="div-button" class="w-fit mx-auto">
+
+    <button id="change" class="py-2 hover:bg-white hover:text-black font-bold transition inline-block w-fit duration-700 mx-auto my-3 px-4 border rounded-full border-e-red-50">Change</button>
+  </div>
+
+  </div>
+
+
+  
+
+
+</div>
+  
+
+  <div id="results" style="" class="  mx-auto" >
+
+    <div id="locationInfo" class="text-black px-4 text-xl flex font-bold justify-between">
+
+      <div id="country-value" class="mb-2 bg-white py-1 px-2 rounded-md " >Egypt</div>
+      <div id="cityName" class="bg-white py-1 px-2 rounded-md mb-2">
+        
+        
+        <span>City : </span>
+        <span id="city-value" >Cario</span>
+      </div>
+    </div>
+
+  <div id="prayer_time"    class=" border  h-fit   rounded-lg text-white border-solid mx-auto">
+    
+    <div id="pray-box_Fajr" class="flex border-b-2  mb-0 font-bold text-lg justify-between p-3 md:p-4 lg:5px">
+      <div id="pray_Name">
+        Fajr
+      </div>
+      
+      <div id="pray_time">
+        04:40
+      </div>
+      
+    </div>
+    <div id="pray-box_Sunrise" class="flex border-b-2   font-bold text-lg justify-between p-3 md:p-4 lg:5px">
+      <div id="pray_Name">
+        Sunrise
+      </div>
+      
+      <div id="pray_time">
+        04:40
+      </div>
+      
+    </div>
+    <div id="pray-box_Dhuhr" class="flex border-b-2   font-bold text-lg justify-between p-3 md:p-4 lg:5px">
+      <div id="pray_Name">
+        Dhuhr
+      </div>
+      
+      <div id="pray_time">
+        04:40
+      </div>
+      
+  </div>
+  <div id="pray-box_Asr" class="flex border-b-2   font-bold text-lg justify-between p-3 md:p-4 lg:5px">
+    <div id="pray_Name">
+      Asr
+    </div>
+    
+    <div id="pray_time">
+      04:40
+    </div>
+    
+  </div>
+  <div id="pray-box_Maghrib" class="flex border-b-2   font-bold text-lg justify-between p-3 md:p-4 lg:5px">
+    <div id="pray_Name">
+      Maghrib
+    </div>
+    
+    <div id="pray_time">
+      04:40
+    </div>
+    
+  </div>
+  <div id="pray-box_Isha" class="flex     font-bold text-lg justify-between p-3 md:p-4 lg:5px">
+    <div id="pray_Name">
+      Isha
+    </div>
+    
+    <div id="pray_time">
+      04:40
+    </div>
+    
+  </div>
+  
+</div>
+
+
+</div>
+
+</div>
+
+<div id="background2" class="back2 md:hidden lg:hidden">
+
+
+</div>
+
+
+
+
+<script src="main.js"></script>
+</body>
+</html>

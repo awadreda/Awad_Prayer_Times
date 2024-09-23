@@ -1,0 +1,16 @@
+{
+  "name": "prayer_time",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/outPut.css ",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./dist/outPut.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.12"
+  }
+}
