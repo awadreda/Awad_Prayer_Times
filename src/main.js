@@ -17,6 +17,9 @@
 // https://api.aladhan.com/v1/timingsByCity/20-09-2024?city=Unayzah&country=Saudi+Arabia&method=4&adjustment=1
 
 
+
+
+
 let prayer_timeDiv =document.getElementById("prayer_time");
 
 let CountryBox = document.getElementById("countries");
@@ -24,13 +27,10 @@ let CountryBox = document.getElementById("countries");
 let cityBox = document.getElementById("cities");
 
 
-console.log(CountryBox);
 
 
-console.log(document.querySelector("#pray-box_Asr  div:nth-child(2)"));
 
 
-console.log(document.querySelector(`#pray-box_Asr  #pray-time`));
 
 
 function getPrayFormAPI()
@@ -40,10 +40,7 @@ function getPrayFormAPI()
     "https://api.aladhan.com/v1/timingsByCity/20-09-2024?city=Unayzah&country=Saudi+Arabia&method=4&adjustment=1")
     .then((response) => response.json())
     .then((json) => {
-      // console.log(json.data.timings.Asr);
-      // getHistroy(json);
-      // console.log(json.data.timings);
-
+   
       let result = json.data.timings;
       tempShowing(result);
     });
@@ -115,13 +112,6 @@ function getAllCountries()
       
       fillCountriesBox(json.data);
       
-      // for(let i=0;i<json.data.length;i++)
-      //   {
-      
-      
-      //     console.log(json.data[i].country);
-      
-      // }
       resolve();
       
     })
@@ -155,7 +145,6 @@ function fillCountriesBox(json)
 }
 
 
-// getAllCountries();
 
 console.log(`${document.getElementById("countries").value}`);
 
@@ -207,31 +196,15 @@ function fillCitiesBox(json)
 }
 
 
-
-
-
-// console.log("test !!!!!!!!!!!!")
-// let st = "awad reda";
-
-//  console.log(st.includes(" "));
-
-//   st = st.replace(" ","+");
-//  console.log(st.replace(" ", "+"));
-//  console.log(st);
  
 
 
 
-
-// String.toString
 function updateTimePrayer(country,city)
 {
 
   
 
-  //  String.toString(country)
-
-  //  String.toString(city);
 
   if(country.includes(" "))
   {
@@ -333,15 +306,6 @@ CountryBox.onchange = function (){
 
 
 
-let st = "13:04";
-
-console.log(st.slice(0,2));
-let res = st.slice(0, 2);
-
-console.log(res -12);
-
-console.log(st.replace(0,`01`))
-
 
 
 
@@ -349,13 +313,9 @@ console.log(st.replace(0,`01`))
 function Convert24To12(time)
 {
 
-  // console.log(typeof time);
-
 
 let hours = time.slice(0,2);
-// console.log(`0${hours - 12}${time.slice(2)} pm`);
 
-// console.log(hours >12);
 
   return  hours < 12 ?  `${time} am` : `0${hours-12}${time.slice(2)} pm`; 
 
